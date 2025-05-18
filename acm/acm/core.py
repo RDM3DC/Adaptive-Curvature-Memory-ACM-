@@ -8,6 +8,7 @@ class AdaptiveCurvatureMemory:
 
     def __init__(self, initial_curvature: float = 1.0, memory_size: int = 10) -> None:
         self.memory_size = memory_size
+        self.initial_curvature = initial_curvature
         self.curvatures: Deque[float] = deque(maxlen=memory_size)
         self.curvatures.append(initial_curvature)
 
@@ -24,3 +25,8 @@ class AdaptiveCurvatureMemory:
     def history(self) -> List[float]:
         """Return a list of stored curvature values."""
         return list(self.curvatures)
+
+    def reset(self) -> None:
+        """Reset the memory to its initial state."""
+        self.curvatures = deque(maxlen=self.memory_size)
+        self.curvatures.append(self.initial_curvature)
