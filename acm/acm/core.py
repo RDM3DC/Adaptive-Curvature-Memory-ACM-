@@ -1,4 +1,10 @@
-"""Core module implementing the Adaptive Curvature Memory algorithm."""
+"""Core module implementing the Adaptive Curvature Memory algorithm.
+
+This module exposes the :class:`AdaptiveCurvatureMemory` class which keeps
+a history of curvature values. The class provides methods to update the
+stored values, retrieve the average curvature and reset the memory using
+``reset``.
+"""
 from collections import deque
 from typing import Deque, List
 
@@ -24,3 +30,14 @@ class AdaptiveCurvatureMemory:
     def history(self) -> List[float]:
         """Return a list of stored curvature values."""
         return list(self.curvatures)
+
+    def reset(self, initial_curvature: float = 1.0) -> None:
+        """Clear stored curvatures and start with ``initial_curvature``.
+
+        Parameters
+        ----------
+        initial_curvature:
+            The curvature value to initialise the memory with after reset.
+        """
+        self.curvatures.clear()
+        self.curvatures.append(initial_curvature)
