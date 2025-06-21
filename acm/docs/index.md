@@ -11,3 +11,5 @@ ACM is organized into several modules:
 - **utils** – helper utilities like `moving_average` for statistical calculations.
 
 Example scripts demonstrating practical usage can be found in the `acm/examples/` directory.
+
+Additional short proofs verifying the algorithms can be found in `proofs.md`.
