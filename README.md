@@ -1,26 +1,42 @@
-# Curve Memory
+# Curve Memory (CMA) — Updated 2025-09-08 10:04:13
 
-This repository contains the core implementation of the Curve Memory framework, including robust hyperbolic geometry utilities for curvature-based memory encoding and dynamic geodesic computation.
+Curve Memory (CMA) encodes *curves as memory* and *memory as curves*, forming a bidirectional
+representation that sits at the intersection of **Adaptive π (πₐ)** geometry and the **Adaptive Resistance
+Principle (ARP)** family of adaptive systems.
 
-## Overview
+This update aligns the repo with our most recent discoveries:
+- **Adaptive π (πₐ) integration**: dynamic curvature with near/far regimes and damping term μ; angle-reduced
+  trig during far starts; gradient term re-enabled in near regime for precision.
+- **Curve Memory Alphabet (CMA)**: minimal, composable *glyphs* (primitives) that compose to form curves
+  and store information. Glyphs are parameterized by curvature κ(s), torsion τ(s), and optional signatures.
+- **Wedge-product compressibility**: leveraging exterior algebra features, certain composition rules admit
+  *lossless-size* encodings under wedge constraints, enabling *dual use* as a compression scheme.
+- **Dynamic constants**: π, φ, and related constants become *adaptive fields* under πₐ; CMA is defined to
+  remain *invariant* under these adaptive reparameterizations.
+- **Multi-dimensional ARP coupling** (MD-ARP): CMA signals can be stabilized/optimized with ARP-style
+  dynamics: dG/dt = α|I| − μG applied to glyph strengths, improving robustness and denoising in decoding.
 
-Curve Memory encodes information in path-dependent, curvature-sensitive geometries. This repo includes:
+---
 
-- ✅ Adaptive π geometry functions
-- ✅ Robust handling of all curvature edge cases
-- ✅ Utilities for geometric memory computation
-- ✅ Unit tests and usage scripts
+## Why CMA?
+1. **Memory-as-geometry**: A curve (or family of curves) encodes a data payload; recovering the payload is
+   geometric decoding (fitting, regularization, and symbol recovery).
+2. **Geometry-as-memory**: A data payload deterministically generates a canonical curve constructed from
+   CMA glyphs with stability guarantees.
+3. **Compression & hashing**: Exterior/wedge constraints make some concatenations *non-inflationary*,
+   providing structural compressibility and *curve-hash* capabilities.
 
-## Installation
-
+## Quick Start
 ```bash
-pip install -r requirements.txt
+pip install -e .
+python examples/encode_spiral.py --n 800 --out examples/spiral.cma.json
+python examples/decode_to_svg.py --in examples/spiral.cma.json --out examples/spiral.svg
 ```
 
-## Usage
+## Repo Map
+- `docs/` — math notes, whitepaper, specs.
+- `src/curve_memory/` — Python reference implementation.
+- `examples/` — small scripts to encode/decode.
+- `tests/` — basic unit tests.
 
-```python
-from curve_memory.hyperbolic import pi_a_over_pi, adaptive_pi_metrics
-```
-
-For in-depth theory and math, see [`docs/HYPERBOLIC_GEOMETRY_IMPLEMENTATION.md`](docs/HYPERBOLIC_GEOMETRY_IMPLEMENTATION.md).
+MIT License. Research preview quality — expect rapid iteration.
