@@ -1,5 +1,10 @@
 # Curve Memory (CMA) — Updated 2025-09-08 10:04:13
 
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/RDM3DC)](https://github.com/sponsors/RDM3DC)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue.svg)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+
 Curve Memory (CMA) encodes *curves as memory* and *memory as curves*, forming a bidirectional
 representation that sits at the intersection of **Adaptive π (πₐ)** geometry and the **Adaptive Resistance
 Principle (ARP)** family of adaptive systems.
