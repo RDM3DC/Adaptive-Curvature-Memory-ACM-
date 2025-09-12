@@ -12,10 +12,17 @@ We let π become an adaptive field πₐ that relaxes to the Euclidean π via a 
 steering in a near regime. In “far” starts we update with damping-only; in “near” we include gradient feedback:
 
 - **Far regime:** α = 0, update
-  $$\pi_a \leftarrow \pi_a - \mu(\pi_a - \pi)$$
+
+  \[
+  \pi_a \leftarrow \pi_a - \mu(\pi_a - \pi)
+  \]
+
   with angle-reduced trig to maintain numerical stability for extreme initial values.
 - **Near regime:** re-enable gradient:
-  $$\pi_a \leftarrow \pi_a - \alpha \, e \, \frac{\partial P}{\partial \pi_a} - \mu(\pi_a - \pi)$$
+
+  \[
+  \pi_a \leftarrow \pi_a - \alpha \, e \, \frac{\partial P}{\partial \pi_a} - \mu(\pi_a - \pi)
+  \]
 
 CMA encoding uses πₐ consistently in curvature/angle parameterizations so that *symbol boundaries* remain
 stable while allowing adaptive geometry.
@@ -41,7 +48,11 @@ combined information—hence **lossless-size** composition under the wedge const
 ## 4. ARP/MD-ARP Stabilization
 
 We modulate glyph strengths \( G_i \) using ARP-style dynamics:
-\[ \frac{dG_i}{dt} = \alpha |I_i| - \mu G_i \]
+
+\[
+\frac{dG_i}{dt} = \alpha |I_i| - \mu G_i
+\]
+
 where \( I_i \) is a local evidence/current for glyph \( i \) during decoding. This suppresses noise and yields
 consistent symbol recovery across scales.
 
