@@ -4,18 +4,18 @@
 
 Successfully implemented a **robust, production-quality** hyperbolic geometry system for AdaptiveCAD that handles all numerical edge cases and instabilities in the fundamental adaptive pi formula:
 
-```
-π_a/π = (κ * sinh(r/κ)) / r
-```
+$$
+\frac{\pi_a}{\pi} = \frac{\kappa \cdot \sinh(r/\kappa)}{r}
+$$
 
 ## Key Improvements
 
 ### 🔧 **Numerical Stability Fixes**
 
-1. **Zero Division Protection**: Handles `r ≈ 0` and `κ ≈ 0` gracefully
-2. **Overflow Prevention**: Manages large `r/κ` ratios without overflow/underflow
-3. **Taylor Expansion**: Uses precise series expansion for small `|r/κ|` values
-4. **Fallback Strategy**: Returns Euclidean limit (1.0) for unstable cases
+1. **Zero Division Protection**: Handles $r \approx 0$ and $\kappa \approx 0$ gracefully
+2. **Overflow Prevention**: Manages large $r/\kappa$ ratios without overflow/underflow
+3. **Taylor Expansion**: Uses precise series expansion for small $|r/\kappa|$ values
+4. **Fallback Strategy**: Returns Euclidean limit $1.0$ for unstable cases
 
 ### 📁 **Files Modified/Created**
 
@@ -123,7 +123,7 @@ metrics = adaptive_pi_metrics(1.0, 1.0)
 
 #### **Before the Fix**
 - Import used **old, unstable** `pi_a_over_pi` from `nd_math.py`
-- **Different formula**: Used `sqrt(|κ|) * r` approach instead of direct `r/κ`
+- **Different formula**: Used $\sqrt{|\kappa|} \cdot r$ approach instead of direct $r/\kappa$
 - **No overflow protection**: Could fail on large geometric models
 - **No parameter validation**: Silent failures or incorrect transformations
 - **Transformation was disabled**: Code had "TEMP: Bypass pi_a_over_pi transformation"
@@ -182,9 +182,9 @@ from ..nd_math import stable_pi_a_over_pi  # Legacy fallback
 
 The implementation correctly handles the fundamental adaptive pi relationship:
 
-- **Euclidean case**: `κ → 0` or `r → 0` gives `π_a/π → 1`
-- **Hyperbolic case**: `κ < 0` produces stable, positive ratios
-- **Spherical case**: `κ > 0` produces expected sinh-based scaling
+- **Euclidean case**: $\kappa \to 0$ or $r \to 0$ gives $\pi_a/\pi \to 1$
+- **Hyperbolic case**: $\kappa < 0$ produces stable, positive ratios
+- **Spherical case**: $\kappa > 0$ produces expected $\sinh$-based scaling
 - **Extreme cases**: Large ratios fall back to Euclidean limit for stability
 
 ## Performance Characteristics
